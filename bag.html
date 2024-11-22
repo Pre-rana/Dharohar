@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artisan Shopping Cart</title>
+   
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="media.css">
+    <link rel="stylesheet" href="style1.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&display=swap" rel="stylesheet">
+    
+    <style>
+        
+
+        .cart-container {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .cart-left {
+            background-color: #fcfbf9;
+            padding: 20px;
+            flex: 2;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+
+        .cart-right {
+            background-color: #f9f8f5;
+            padding: 20px;
+            flex: 1;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+
+        h2, h3 {
+            color: #8b4513;
+            margin-bottom: 15px; /* Add space between heading and products */
+        }
+
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 25px; /* Increase space between items */
+            align-items: center;
+        }
+
+        .cart-item img {
+            width: 100px;
+            height: 120px;
+            object-fit: cover;
+            margin-right: 20px;
+            border-radius: 8px;
+        }
+
+        .item-details {
+            flex-grow: 1;
+        }
+
+        .item-details h3 {
+            font-size: 16px;
+            margin-bottom: 10px;
+            color: #5a3e2b;
+        }
+
+        .item-details p {
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+
+        .price {
+            color: #8b4513;
+            font-weight: bold;
+        }
+
+        .discount {
+            text-decoration: line-through;
+            color: #a9a9a9;
+            margin-left: 10px;
+        }
+
+        .remove-item {
+            background-color: transparent;
+            color: #8b4513;
+            border: none;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .wishlist {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #8b4513;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .summary {
+            border-radius: 10px;
+            padding: 20px;
+            background-color: #f4f1e4;
+        }
+
+        .summary h3 {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+
+        .price-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+
+        .total-amount {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .apply-coupon {
+            background-color: transparent;
+            color: #8b4513;
+            border: 1px solid #8b4513;
+            padding: 5px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .place-order {
+            width: 100%;
+            padding: 15px;
+            background-color: #8b4513;
+            color: white;
+            border: none;
+            cursor: pointer;
+            margin-top: 20px;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .quantity-controls {
+            display: flex;
+            align-items: center;
+        }
+
+        .quantity-controls button {
+            background-color: #8b4513;
+            color: white;
+            border: none;
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            font-size: 16px;
+            cursor: pointer;
+            margin: 0 10px;
+        }
+
+        .quantity-controls span {
+            font-size: 16px;
+        }
+
+        /* Suggested Buys */
+        .suggested-buys {
+            margin-top: 40px;
+        }
+
+        .suggested-item {
+            display: flex;
+            margin-bottom: 15px;
+            align-items: center;
+        }
+
+        .suggested-item img {
+            width: 80px;
+            height: 100px;
+            object-fit: cover;
+            margin-right: 15px;
+            border-radius: 5px;
+        }
+
+        .suggested-item h4 {
+            font-size: 14px;
+            color: #5a3e2b;
+            margin-bottom: 5px;
+        }
+
+        .suggested-item .price {
+            color: #8b4513;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-top">
+            <div class="celebration-bar">Connecting Indian Diaspora to their roots</div>
+            <div class="currency-selector">
+                <select name="currency-select" id="currency-select" title="Choose Currency " >
+                    <option value="AUD">AUD</option>
+                    <option value="CAD">CAD</option>
+                    <option value="AED">AED</option>
+                    <option value="EUR">EUR</option>
+                    <option value="YEN">YEN</option>
+                    <option value="GBP">GBP</option>
+                    <option value="INR" selected="selected">INR</option>
+                    <option value="SGD">SGD</option>
+                    <option value="USD">USD</option>
+                </select>
+            </div>
+            <div class="account-section">
+                <span><a href="login.html" alt="My Account">My Account</a></span>
+                <span><a href="#" alt="Contact Us">Contact Us</a></span>
+            </div>
+        </div>
+        <nav class="navbar">
+
+            
+                <div class="logo">
+                    <img src="logoname.png" alt="Logo">
+                </div>
+            
+                <div class="categories">
+                    <div >
+                    <ul class="nav-items">
+                        <li class="nav-item">
+                            <a href="clothes.html">Clothes</a>
+                            <ul class="dropdown">
+                                <li><a href="#">Handloom Sarees</a></li>
+                                <li><a href="#">Tunics / Dresses</a></li>
+                                <li><a href="#">Shawl / Stole</a></li>
+                                <li><a href="#">Fabric</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a href="accesories.html">Accessories</a>
+                            <ul class="dropdown">
+                                <li><a href="#">Earings</a></li>
+                                <li><a href="#">Fragrances</a></li>
+                                <li><a href="#">Bangles</a></li>
+                                <li><a href="#">Wrist Watches</a></li>
+                                <li><a href="#">Footwear</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a href="food.html">Food</a>
+                            <ul class="dropdown">
+                                <li><a href="#">Spices</a></li>
+                                <li><a href="#">Snacks</a></li>
+                                <li><a href="#">Pickles</a></li>
+                            </ul>
+                        </li>
+                        <li class="item-1 nav-item">
+                            <a href="#">Religious Items</a>
+                            <ul class="dropdown">
+                                <li><a href="#">Statues</a></li>
+                                <li><a href="#">Rosaries</a></li>
+                                <li><a href="#">Incense sticks</a></li>
+
+                            </ul>
+                        </li>
+                        <li class="nav-item ">
+                            <a href="artifacts.html">Articrafts</a>
+                            <ul class="dropdown">
+                                <li><a href="#">Home Decor</a></li>
+                                <li><a href="#">Pottery</a></li>
+                                <li><a href="#">Mats</a></li>
+
+                            </ul>
+                        </li>
+                        <li class="nav-item item">
+
+                            <a href="herbs.html">Ayurvedic Products</a>
+                            <ul class="dropdown">
+                                <li><a href="#">Herbal Soaps</a></li>
+                                <li><a href="#">Herbal Shampoo</a></li>
+                                <li><a href="#">Body oils</a></li>
+                                <li><a href="#">hair oils</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item ">
+                            <a href="buyers.html">Community</a>
+                            <ul class="dropdown">
+                                <li><a href="chat.html">Chat</a></li>
+                                <li><a href="product.html">Best Seller</a></li>
+                                <li><a href="artisan.html">Artisans</a></li>
+
+                            </ul>
+                        </li>
+
+                    </ul>
+
+
+                </div>
+                </div>
+                <div class="icons">
+                    <a href="" id="heart-icon"><i class='bx bx-heart'></i></a>
+                    <a href="bag.html" id="cart-icon"><i class='bx bx-shopping-bag'></i></a>
+                </div>
+                
+                
+        </nav>
+    </header>
+    <main>
+    <div class="cart-container">
+        <!-- Left Cart Items Section -->
+        <div class="cart-left">
+            <h2>Your Shopping Bag</h2>
+
+            <!-- Cart Item 1 -->
+            <div class="cart-item">
+                <img src="brass.jpg" alt="Artisan Pot">
+                <div class="item-details">
+                    <h3><a href="#">Handmade Clay Pot</a></h3>
+                    <p>By: Local Artisan</p>
+                    <p>Qty: 
+                        <span class="quantity-controls">
+                            <button>-</button><span>1</span><button>+</button>
+                        </span>
+                    </p>
+                    <p class="price">₹649 <span class="discount">₹1599</span></p>
+                    <p>3 days return available</p>
+                </div>
+                <button class="remove-item">Remove</button>
+            </div>
+
+            <!-- Cart Item 2 -->
+            <div class="cart-item">
+                <img src="silk.jpeg" alt="Silk Saree">
+                <div class="item-details">
+                    <h3><a href="#">Authentic Silk Saree</a></h3>
+                    <p>By: Artisan Weaver</p>
+                    <p>Qty: 
+                        <span class="quantity-controls">
+                            <button>-</button><span>1</span><button>+</button>
+                        </span>
+                    </p>
+                    <p class="price">₹575 <span class="discount">₹1,649</span></p>
+                    <p>14 days return available</p>
+                </div>
+                <button class="remove-item">Remove</button>
+            </div>
+              <!-- Cart Item 2 -->
+           
+                
+
+            <button class="wishlist">Add More From Wishlist</button>
+        </div>
+
+        <!-- Right Cart Summary Section -->
+        <div class="cart-right">
+            <div class="summary">
+                <h3>Price Details (2 Items)</h3>
+                <div class="price-row">
+                    <p>Total MRP</p>
+                    <p>₹3,248</p>
+                </div>
+                <div class="price-row">
+                    <p>Discount on MRP</p>
+                    <p>-₹2,024</p>
+                </div>
+                <div class="price-row">
+                    <p>Coupon Discount</p>
+                    <button class="apply-coupon">Apply Coupon</button>
+                </div>
+                <div class="price-row">
+                    <p>Shipping Fee</p>
+                    <p>Free</p>
+                </div>
+                <div class="total-amount">
+                    <p>Total Amount</p>
+                    <p>₹1,224</p>
+                </div>
+                <button class="place-order">Place Order</button>
+            </div>
+
+            <!-- Suggested Buys Section -->
+            <div class="suggested-buys">
+                <h3>Suggested Buys</h3>
+                <div class="suggested-item">
+                    <img src="saree.jpg" alt="Handmade Scarf">
+                    <div>
+                        <h4>Handmade Wool Scarf</h4>
+                        <p class="price">₹299</p>
+                    </div>
+                </div>
+
+                <div class="suggested-item">
+                    <img src="kangan.jpg" alt="Beaded Bracelet">
+                    <div>
+                        <h4>Beaded Artisan Bracelet</h4>
+                        <p class="price">₹149</p>
+                    </div>
+                </div>
+
+                <div class="suggested-item">
+                    <img src="jhumka.jpg" alt="Handcrafted Earrings">
+                    <div>
+                        <h4>Handcrafted Earrings</h4>
+                        <p class="price">₹199</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+    <footer>
+        <p>About Us</p>
+        <p>&copy; DHAROHAR</p>
+        <p>About DHAROHAR</p>
+          <p>  At DHAROHAR, we believe in the power of connection — not just across distances, but across cultures, traditions, and heritage. Founded with a vision to bridge the gap between the Indian Diaspora and the rich tapestry of Indian products — from artisanal handicrafts to traditional wear — DHAROHAR is your gateway to experiencing India’s essence, no matter where you are in the world.</p>
+            
+           <p>Our Mission</p> 
+           <p> For millions of Persons of Indian Origin (PIOs) living abroad, accessing authentic Indian products can be challenging. The longing for a piece of home — be it a handcrafted piece of art, a saree woven with intricate detail, or spices that carry the flavor of India — often goes unfulfilled. That’s where DHAROHAR steps in.</p> 
+            
+            Our mission is to build a community that connects the global Indian Diaspora with local artisans, MSMEs, and small businesses across India, using India Post as the trusted bridge. We are committed to making authentic Indian goods accessible globally, while also empowering local sellers and artisans by providing them with a broader international audience.
+            
+            The Problem We Solved
+            India is home to a treasure trove of cultural artifacts, traditional textiles, and handicrafts. However, the vast majority of these remain inaccessible to those living outside the country due to logistical, supply chain, and accessibility issues.
+            
+            The Indian Diaspora — a community deeply connected to its roots — has often struggled to access the very things that remind them of home. Be it a lack of reliable platforms, high shipping costs, or the absence of trust in product authenticity, PIOs have faced numerous hurdles in procuring the essence of India.
+            
+            Our Impact
+            By fostering this unique marketplace, DHAROHAR ensures that:
+            
+            Artisans and small businesses thrive, gaining a global platform to sell their products and sustain their crafts.
+            Indian Diaspora communities reconnect with their cultural roots, bringing home a piece of India no matter where they live.
+            Sustainable and ethical trade is promoted, where every purchase contributes directly to the livelihoods of local artisans and craftspeople.
+            Why DHAROHAR?
+            DHAROHAR is more than just a marketplace — it’s a movement to preserve and promote India’s rich cultural heritage while providing the global Indian community with a reliable platform to access authentic Indian products. Whether you’re looking for the perfect handcrafted item or seeking to bring Indian traditions to your doorstep, DHAROHAR is here to make that connection seamless and heartfelt.
+            
+            Join us on this journey as we bring India’s heritage to the world, one handcrafted piece at a time.</p>
+    </footer>
+</body>
+
+</html>

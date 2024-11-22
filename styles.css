@@ -1,0 +1,229 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+      font-family: "Gowun Batang", serif;
+    background-color: #fdf6e3;
+    color: #333;
+}
+
+
+/* Header */
+.header-top {
+    background-color: rgb(167, 89, 33)  ;
+    color: white;
+    padding: 2px 5px;
+    display: flex;
+    font-size: 15px;
+    font-weight: 200;
+    justify-content:space-between;
+}
+
+nav {
+    background-color: #fff1cf;
+    padding: 10px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo img {
+    width: 100px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+}
+
+.account-section a {
+    text-decoration: none;
+    color: #fdfcfc;
+    margin-left: 10px;
+    padding-right: 5px;
+}
+
+/* Main Section */
+.intro-section {
+    text-align: center;
+    margin: 30px 0;
+}
+
+.intro-section h2 {
+    font-size: 2.5rem;
+    color: #8b4513;
+}
+
+.intro-section p {
+    font-size: 1.2rem;
+    color: #666;
+}
+
+/* Products Section */
+.product-section {
+    box-sizing: content-box;
+    width:800px;
+    height:1000px;
+    display:block;
+   margin:50px 100px ;
+}
+
+
+.product {
+    width: 200 px;
+    height: 300px ;
+    background-color: #fdfcf9;
+    border:none;
+    border-radius: 5px;
+    text-align:center;
+    display: flex;
+    font-style: inherit;
+    box-sizing: border-box;
+    margin: 10px;
+}
+.product p{
+    color: #081064;
+
+}
+.product a{
+    text-decoration: none;
+}
+.product img{
+    border-radius:5px ;
+}
+.Products{
+    display:flex;
+    width:800px;
+    height:300px
+}
+
+button {
+    background-color: #8b4513;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    margin-top: 10px;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: #704321;
+}
+
+/* Footer */
+footer {
+    background-color: #8b4513;
+    color: white;
+    padding: 10px;
+    text-align: center;
+}
+.currency-selector{
+    padding-left:0px;
+    margin-right:200px ;
+}
+.account-section{
+    padding: 0px;
+    box-sizing: border-box;
+  margin-right: 0px;
+}
+input, textarea, select, .form-control {
+	border: 1px solid #dfdfdf;
+	border-radius:0;
+	box-shadow:none;
+	transition:border-color 500ms;
+	padding: 8px 12px;
+	font-size:14px;
+	outline:none;
+}
+ul {
+	list-style:none;
+	margin:0;
+	padding:0;
+}
+#currency-select{
+   background-color:rgb(167, 89, 33)  ;
+   color:#fdfafa;
+   border: none;
+   font-size: 15 px;
+}
+.celebration-bar{
+    margin:0px;
+}
+.navbar {
+    background-color: #f4d2af;
+    padding: 0px;
+}
+
+.nav-items {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: space-around;
+}
+
+.nav-item {
+    position: relative;
+}
+
+.nav-item a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    padding: 10px 15px;
+    display: block;
+}
+
+.nav-item a:hover {
+    color: #d45b35;
+}
+
+/* Dropdown styles */
+.dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    min-width: 180px;
+    z-index: 1000;
+}
+
+.dropdown li {
+    list-style-type: none;
+}
+
+.dropdown li a {
+    padding: 10px 15px;
+    display: block;
+    color: #333;
+    text-align: left;
+}
+
+.dropdown li a:hover {
+    background-color: #f4d2af;
+    color: #d45b35;
+}
+
+/* Show dropdown on hover */
+.nav-item:hover .dropdown {
+    display: block;
+}
+.main-image{
+box-sizing: content-box;
+padding:0% 10%; 
+}
+

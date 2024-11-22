@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Meta and Title -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Community - Posts</title>
+
+    <!-- Fonts and Stylesheets -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Lora:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style1.css">
+    <link rel="stylesheet" href="media.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- Styles -->
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body Styles */
+       
+
+        /* Main Content Layout */
+        .main-content {
+            display: flex;
+            padding: 20px;
+            gap: 30px;
+        }
+
+        /* Left Sidebar: Government Schemes */
+        .left-sidebar {
+            width: 65%;
+        }
+
+       /* Scheme List Styling */
+.scheme-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Space between items */
+}
+
+.scheme-item {
+    display: flex;
+    align-items: center; /* Center align items vertically */
+    background-color: white;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.scheme-image-small {
+    width: 50px; /* Set size for the small image */
+    height: 50px; /* Keep it square */
+    border-radius: 8px; /* Rounded corners */
+    margin-right: 15px; /* Space between image and content */
+}
+
+.scheme-content {
+    flex-grow: 1; /* Allow content to take remaining space */
+}
+
+.scheme-link {
+    text-decoration: none;
+    color: #0073b1; /* Link color */
+    font-weight: bold; /* Bold link */
+    display: block; /* Make it block-level for full clickable area */
+    margin-bottom: 5px; /* Space below the link */
+}
+
+
+        /* Right Sidebar: News Articles */
+        .right-sidebar {
+            width: 30%;
+        }
+
+        .news-card {
+            background-color: #fff;
+            border: 1px solid #eaeaea;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            margin-bottom: 25px;
+        }
+
+        .news-image {
+            width: 100%;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+
+        .news-title {
+            font-size: 18px;
+            font-weight: bold;
+            color: #a75921;
+        }
+
+        .feed-link {
+            text-decoration: none;
+            color: #0073b1;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        /* Footer Styles */
+        footer {
+            background-color: #a75921;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        
+        <div class="header-top">
+            <div class="celebration-bar">Connecting Indian Diaspora to their roots</div>
+            <div class="currency-selector">
+                <select name="currency-select" id="currency-select" title="Choose Currency " >
+                    <option value="AUD">AUD</option>
+                    <option value="CAD">CAD</option>
+                    <option value="AED">AED</option>
+                    <option value="EUR">EUR</option>
+                    <option value="YEN">YEN</option>
+                    <option value="GBP">GBP</option>
+                    <option value="INR" selected="selected">INR</option>
+                    <option value="SGD">SGD</option>
+                    <option value="USD">USD</option>
+                </select>
+            </div>
+            <div class="account-section">
+                <span><a href="login.html" alt="My Account">My Account</a></span>
+                <span><a href="#" alt="Contact Us">Contact Us</a></span>
+            </div>
+        </div>
+        <nav class="navbar">
+
+            
+                <div class="logo">
+                    <img src="logoname.png" alt="Logo">
+                </div>
+            
+                <div class="categories">
+                    <div >
+                    <ul class="nav-items">
+                        <li class="nav-item">
+                            <a href="webinars.html">Webinars</a>
+                            
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a href="seller_com.html">Posts</a>
+                            
+                        </li>
+                        <li class="item-1 nav-item">
+                            <a href="news.html">Relevant News</a>
+                            
+                        </li>
+                        
+                        <li class="nav-item item">
+
+                            <a href="skill.html">Skill Upgrade</a>
+                            
+                        </li>
+                        
+                    </ul>
+
+
+                </div>
+                </div>
+            
+           <label> <input type="checkbox" name="" title="checkbutton" id="check"></label>
+            <label class="menu-toggle" for="check" id="checkbtn"></i></label>
+            <label for="check" class="logo"><i class='bx bx-menu'></i></label>
+          
+            <button class="sell-button">Start Selling</button>
+
+            
+
+
+        </nav>
+       
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Government Schemes Section -->
+        <div class="left-sidebar">
+            <h2>Government Schemes</h2>
+            <div class="scheme-list">
+                <div class="scheme-item">
+                    <img src="PMEGP.png" alt="Scheme 1" style= "width: 10rem;height: 10rem;" class="scheme-image-small">
+                    <div class="scheme-content">
+                        <a href="#" class="scheme-link">Prime Minister's Employment Generation Programme</a>
+                        <p>Objective: To generate self-employment and create job opportunities in rural and urban areas by supporting the establishment of micro-enterprises.
+</p>
+<p>
+                            Financial Assistance: Provides subsidy support and bank loans, with subsidy rates of 25% for general category and 35% for special categories (SC/ST, women).
+</p>
+                    </div>
+                </div>
+                <div class="scheme-item">
+                    <img src="day-nrlm.webp" alt="Scheme 2" class="scheme-image-small"style= "width: 10rem;height: 10rem;">
+                    <div class="scheme-content">
+                        <a href="#" class="scheme-link">Deendayal Antyodaya Yojana - National Rural Livelihoods Mission (DAY-NRLM)</a>
+                        <p>This scheme aims at empowering women in rural areas. Financial Assistance: Provides subsidy support and bank loans, with subsidy rates of 25% for general category and 35% for special categories (SC/ST, women).</p>
+                    </div>
+                </div>
+                <div class="scheme-item">
+                    <img src="day-nrlm.webp" alt="Scheme 3" class="scheme-image-small" style= "width: 10rem;height: 10rem;">
+                    <div class="scheme-content">
+                        <a href="#" class="scheme-link">Scheme Title 3</a>
+                        <p>This scheme provides financial aid for education. Financial Assistance: Provides subsidy support and bank loans, with subsidy rates of 25% for general category and 35% for special categories (SC/ST, women).</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+
+        <!-- News Articles Section -->
+        <div class="right-sidebar">
+            <h2>Latest Articles</h2>
+            <div class="news-card">
+                <img src="news.jpeg" style= "width: 20rem;height: 20rem;"alt="News Article" class="news-image">
+                <h4 class="news-title">Article Title 1</h4>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <a href="#" class="feed-link">Read more</a>
+            </div>
+            <div class="news-card">
+                <img src="news.jpeg" alt="News Article" class="news-image">
+                <h4 class="news-title">Article Title 2</h4>
+                <p>Quisque auctor sem et arcu aliquet, ac ultrices arcu cursus.</p>
+                <a href="#" class="feed-link">Read more</a>
+            </div>
+            <div class="news-card">
+                    <img src="news.jpeg" alt="News Article" class="news-image">
+                    <h4 class="news-title">Article Title 1</h4>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    <a href="#" class="feed-link">Read more</a>
+                </div>
+                <div class="feed-card">
+                    <img src="news.jpeg" alt="News Article" class="news-image">
+                    <h4 class="news-title">Article Title 2</h4>
+                    <p>Quisque auctor sem et arcu aliquet, ac ultrices arcu cursus.</p>
+                    <a href="#" class="feed-link">Read more</a>
+                </div>
+                <div class="feed-card">
+                    <img src="news.jpeg" alt="News Article" class="news-image">
+                    <h4 class="news-title">Article Title 3</h4>
+                    <p>Suspendisse potenti. Sed ullamcorper nisl ut risus gravida.</p>
+                    <a href="#" class="feed-link">Read more</a>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <p>About Us</p>
+        <p>&copy; DHAROHAR</p>
+        <p>About DHAROHAR</p>
+          <p>  At DHAROHAR, we believe in the power of connection — not just across distances, but across cultures, traditions, and heritage. Founded with a vision to bridge the gap between the Indian Diaspora and the rich tapestry of Indian products — from artisanal handicrafts to traditional wear — DHAROHAR is your gateway to experiencing India’s essence, no matter where you are in the world.</p>
+            
+           <p>Our Mission</p> 
+           <p> For millions of Persons of Indian Origin (PIOs) living abroad, accessing authentic Indian products can be challenging. The longing for a piece of home — be it a handcrafted piece of art, a saree woven with intricate detail, or spices that carry the flavor of India — often goes unfulfilled. That’s where DHAROHAR steps in.</p> 
+            
+            Our mission is to build a community that connects the global Indian Diaspora with local artisans, MSMEs, and small businesses across India, using India Post as the trusted bridge. We are committed to making authentic Indian goods accessible globally, while also empowering local sellers and artisans by providing them with a broader international audience.
+            
+            The Problem We Solved
+            India is home to a treasure trove of cultural artifacts, traditional textiles, and handicrafts. However, the vast majority of these remain inaccessible to those living outside the country due to logistical, supply chain, and accessibility issues.
+            
+            The Indian Diaspora — a community deeply connected to its roots — has often struggled to access the very things that remind them of home. Be it a lack of reliable platforms, high shipping costs, or the absence of trust in product authenticity, PIOs have faced numerous hurdles in procuring the essence of India.
+            
+            Our Impact
+            By fostering this unique marketplace, DHAROHAR ensures that:
+            
+            Artisans and small businesses thrive, gaining a global platform to sell their products and sustain their crafts.
+            Indian Diaspora communities reconnect with their cultural roots, bringing home a piece of India no matter where they live.
+            Sustainable and ethical trade is promoted, where every purchase contributes directly to the livelihoods of local artisans and craftspeople.
+            Why DHAROHAR?
+            DHAROHAR is more than just a marketplace — it’s a movement to preserve and promote India’s rich cultural heritage while providing the global Indian community with a reliable platform to access authentic Indian products. Whether you’re looking for the perfect handcrafted item or seeking to bring Indian traditions to your doorstep, DHAROHAR is here to make that connection seamless and heartfelt.
+            
+            Join us on this journey as we bring India’s heritage to the world, one handcrafted piece at a time.</p>
+    </footer>
+</body>
+</html>

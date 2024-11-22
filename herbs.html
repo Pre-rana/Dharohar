@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Ayurvedic Products & Herbs</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="accessories.css">
+    <link rel="stylesheet" href="style1.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-top">
+            <div class="celebration-bar">Connecting Indian Diaspora to their roots</div>
+            <div class="currency-selector">
+                <select name="currency-select" id="currency-select" title="Choose Currency " >
+                    <option value="AUD">AUD</option>
+                    <option value="CAD">CAD</option>
+                    <option value="AED">AED</option>
+                    <option value="EUR">EUR</option>
+                    <option value="YEN">YEN</option>
+                    <option value="GBP">GBP</option>
+                    <option value="INR" selected="selected">INR</option>
+                    <option value="SGD">SGD</option>
+                    <option value="USD">USD</option>
+                </select>
+            </div>
+            <div class="account-section">
+                <span><a href="login.html" alt="My Account">My Account</a></span>
+                <span><a href="#" alt="Contact Us">Contact Us</a></span>
+            </div>
+        </div>
+        <nav class="navbar">
+
+            
+                <div class="logo">
+                    <img src="logoname.png" alt="Logo">
+                </div>
+            
+                <div class="categories">
+                    <div >
+                    <ul class="nav-items">
+                        <li class="nav-item">
+                            <a href="clothes.html">Clothes</a>
+                            <ul class="dropdown">
+                                <li><a href="#">Handloom Sarees</a></li>
+                                <li><a href="#">Tunics / Dresses</a></li>
+                                <li><a href="#">Shawl / Stole</a></li>
+                                <li><a href="#">Fabric</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a href="accesories.html">Accessories</a>
+                            <ul class="dropdown">
+                                <li><a href="#">Earings</a></li>
+                                <li><a href="#">Fragrances</a></li>
+                                <li><a href="#">Bangles</a></li>
+                                <li><a href="#">Wrist Watches</a></li>
+                                <li><a href="#">Footwear</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a href="food.html">Food</a>
+                            <ul class="dropdown">
+                                <li><a href="#">Spices</a></li>
+                                <li><a href="#">Snacks</a></li>
+                                <li><a href="#">Pickles</a></li>
+                            </ul>
+                        </li>
+                        <li class="item-1 nav-item">
+                            <a href="#">Religious Items</a>
+                            <ul class="dropdown">
+                                <li><a href="#">Statues</a></li>
+                                <li><a href="#">Rosaries</a></li>
+                                <li><a href="#">Incense sticks</a></li>
+
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a href="artifacts.html">Articrafts</a>
+                            <ul class="dropdown">
+                                <li><a href="#">Home Decor</a></li>
+                                <li><a href="#">Pottery</a></li>
+                                <li><a href="#">Mats</a></li>
+
+                            </ul>
+                        </li>
+                        <li class="nav-item item">
+
+                            <a href="herbs.html">Ayurvedic Products</a>
+                            <ul class="dropdown">
+                                <li><a href="#">Herbal Soaps</a></li>
+                                <li><a href="#">Herbal Shampoo</a></li>
+                                <li><a href="#">Body oils</a></li>
+                                <li><a href="#">hair oils</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a href="buyers.html">Community</a>
+                            <ul class="dropdown">
+                                <li><a href="chat.html">Chat</a></li>
+                                <li><a href="product.html">Best Seller</a></li>
+                                <li><a href="artisan.html">Artisans</a></li>
+
+                            </ul>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+            
+
+            <div class="icons">
+                <a href="" id="heart-icon"><i class='bx bx-heart'></i></a>
+                <a href="bag.html" id="cart-icon"><i class='bx bx-shopping-bag'></i></a>
+            </div>
+            
+        </nav>
+        <!-- Breadcrumb Navigation -->
+        <nav aria-label="breadcrumb">
+            <ul class="breadcrumb">
+                <li><a href="sih4.html">Home</a></li>
+                <li><a href="herbs.html">Ayurvedic Products & Herbs</a></li>
+                
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <div class="filters">
+            <div class="filters-brand">
+                <h2> Brands </h2>
+                <label><input type="checkbox"> Dabur</label><br>
+                <label><input type="checkbox"> Himalaya</label><br>
+                <label><input type="checkbox"> Zandu</label><br>
+                <label><input type="checkbox"> Patanjali</label><br>
+                <label><input type="checkbox"> Ayus</label><br>
+            </div>
+            <br>
+            <hr>
+            <br>
+            <div class="filters-price">
+                <h2>Filter by Price</h2>
+                <label for="priceRange">Price Range: ₹<span id="min-price">500</span> - ₹<span id="max-price">5000</span></label>
+                <input type="range" id="priceRange" min="500" max="5000" step="100" value="5000" oninput="updatePrice()">
+            </div>
+            
+        </div>
+
+        <div class="product-list">
+            <div class="product">
+                <a href="#" alt="ashwagandha">
+                    <img src="ashwagandha.jpg" alt="Product 1">
+                    <h3>ashwagandha</h3>
+                    </a>
+                <p class="price"> Rs 1299.00 </p>
+                
+                
+            </div>
+            <div class="product">
+                <a href="#" alt="neem powder">
+                    <img src="neem powder.jpg" alt="Product 2">
+                    <h3>neem powder</h3>
+                </a>
+                <p class="price"> Rs 1200.00 </p>
+                
+            </div>
+            <div class="product">
+                <a href="#" alt="amla">
+                    <img src="amla.jpg" alt="Product 3">
+                    <h3>amla</h3>
+                </a>
+                <p class="price"> Rs 550.00 </p>  
+            </div>
+            <div class="product">
+                <a href="#" alt="bhringraj">
+                    <img src="bhringraj.jpg" alt="Product 4">
+                    <h3>bhringraj</h3>
+                </a>
+                <p class="price"> Rs 675.00 </p>  
+            </div>
+            <div class="product">
+                <a href="#" alt="shikakayi">
+                    <img src="shikakayi.jpg" alt="Product 5">
+                    <h3>shikakayi</h3>
+                </a>
+                <p class="price"> Rs 2599.00 </p>  
+            </div>
+            <div class="product">
+                <a href="#" alt="vajradanti">
+                    <img src="vajradanti.jpg" alt="Product 6">
+                    <h3>vajradanti</h3>
+                </a>
+                <p class="price"> Rs 899.00 </p>  
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>About Us</p>
+        <p>&copy; DHAROHAR</p>
+        <p>About DHAROHAR</p>
+          <p>  At DHAROHAR, we believe in the power of connection — not just across distances, but across cultures, traditions, and heritage. Founded with a vision to bridge the gap between the Indian Diaspora and the rich tapestry of Indian products — from artisanal handicrafts to traditional wear — DHAROHAR is your gateway to experiencing India’s essence, no matter where you are in the world.</p>
+            
+           <p>Our Mission</p> 
+           <p> For millions of Persons of Indian Origin (PIOs) living abroad, accessing authentic Indian products can be challenging. The longing for a piece of home — be it a handcrafted piece of art, a saree woven with intricate detail, or spices that carry the flavor of India — often goes unfulfilled. That’s where DHAROHAR steps in.</p> 
+            
+            Our mission is to build a community that connects the global Indian Diaspora with local artisans, MSMEs, and small businesses across India, using India Post as the trusted bridge. We are committed to making authentic Indian goods accessible globally, while also empowering local sellers and artisans by providing them with a broader international audience.
+            
+            The Problem We Solved
+            India is home to a treasure trove of cultural artifacts, traditional textiles, and handicrafts. However, the vast majority of these remain inaccessible to those living outside the country due to logistical, supply chain, and accessibility issues.
+            
+            The Indian Diaspora — a community deeply connected to its roots — has often struggled to access the very things that remind them of home. Be it a lack of reliable platforms, high shipping costs, or the absence of trust in product authenticity, PIOs have faced numerous hurdles in procuring the essence of India.
+            
+            Our Impact
+            By fostering this unique marketplace, DHAROHAR ensures that:
+            
+            Artisans and small businesses thrive, gaining a global platform to sell their products and sustain their crafts.
+            Indian Diaspora communities reconnect with their cultural roots, bringing home a piece of India no matter where they live.
+            Sustainable and ethical trade is promoted, where every purchase contributes directly to the livelihoods of local artisans and craftspeople.
+            Why DHAROHAR?
+            DHAROHAR is more than just a marketplace — it’s a movement to preserve and promote India’s rich cultural heritage while providing the global Indian community with a reliable platform to access authentic Indian products. Whether you’re looking for the perfect handcrafted item or seeking to bring Indian traditions to your doorstep, DHAROHAR is here to make that connection seamless and heartfelt.
+            
+            Join us on this journey as we bring India’s heritage to the world, one handcrafted piece at a time.</p>
+    </footer>
+
+    <!-- <script src="script.js"></script> -->
+</body>
+</html>

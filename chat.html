@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat UI</title>
+    <link rel="stylesheet" href="chat.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&display=swap" rel="stylesheet">
+   
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="media.css">
+    <link rel="stylesheet" href="style1.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+</head>
+<body>
+    <header>
+        <div class="header-top">
+            <div class="celebration-bar">Connecting Indian Diaspora to their roots</div>
+            <div class="currency-selector">
+                <select name="currency-select" id="currency-select" title="Choose Currency " >
+                    <option value="AUD">AUD</option>
+                    <option value="CAD">CAD</option>
+                    <option value="AED">AED</option>
+                    <option value="EUR">EUR</option>
+                    <option value="YEN">YEN</option>
+                    <option value="GBP">GBP</option>
+                    <option value="INR" selected="selected">INR</option>
+                    <option value="SGD">SGD</option>
+                    <option value="USD">USD</option>
+                </select>
+            </div>
+            <div class="account-section">
+                <span><a href="login.html" alt="My Account">My Account</a></span>
+                <span><a href="#" alt="Contact Us">Contact Us</a></span>
+            </div>
+        </div>
+        <nav class="navbar">
+
+            
+                <div class="logo">
+                    <img src="logoname.png" alt="Logo">
+                </div>
+            
+                <div class="categories">
+                    <div >
+                    <ul class="nav-items">
+                        <li class="nav-item">
+                            <a href="clothes.html">Clothes</a>
+                            <ul class="dropdown">
+                                <li><a href="#">Handloom Sarees</a></li>
+                                <li><a href="#">Tunics / Dresses</a></li>
+                                <li><a href="#">Shawl / Stole</a></li>
+                                <li><a href="#">Fabric</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a href="accesories.html">Accessories</a>
+                            <ul class="dropdown">
+                                <li><a href="#">Earings</a></li>
+                                <li><a href="#">Fragrances</a></li>
+                                <li><a href="#">Bangles</a></li>
+                                <li><a href="#">Wrist Watches</a></li>
+                                <li><a href="#">Footwear</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a href="food.html">Food</a>
+                            <ul class="dropdown">
+                                <li><a href="#">Spices</a></li>
+                                <li><a href="#">Snacks</a></li>
+                                <li><a href="#">Pickles</a></li>
+                            </ul>
+                        </li>
+                        <li class="item-1 nav-item">
+                            <a href="#3">Religious Items</a>
+                            <ul class="dropdown">
+                                <li><a href="#">Statues</a></li>
+                                <li><a href="#">Rosaries</a></li>
+                                <li><a href="#">Incense sticks</a></li>
+
+                            </ul>
+                        </li>
+                        <li class="nav-item ">
+                            <a href="artifacts.html">Articrafts</a>
+                            <ul class="dropdown">
+                                <li><a href="#">Home Decor</a></li>
+                                <li><a href="#">Pottery</a></li>
+                                <li><a href="#">Mats</a></li>
+
+                            </ul>
+                        </li>
+                        <li class="nav-item item">
+
+                            <a href="herbs.html">Ayurvedic Products</a>
+                            <ul class="dropdown">
+                                <li><a href="#">Herbal Soaps</a></li>
+                                <li><a href="#">Herbal Shampoo</a></li>
+                                <li><a href="#">Body oils</a></li>
+                                <li><a href="#">hair oils</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item ">
+                            <a href="buyers.html">Community</a>
+                            <ul class="dropdown">
+                                <li><a href="#">Chat</a></li>
+                                <li><a href="product.html">Best Seller</a></li>
+                                <li><a href="artisan.html">Artisans</a></li>
+
+                            </ul>
+                        </li>
+
+                    </ul>
+
+
+                </div>
+                </div>
+        </nav>
+    </header>
+    <div class="chat-container">
+        <div class="sidebar">
+            <div class="search-bar">
+                <input type="text" placeholder="Search contacts ">
+                <button class="search-button">
+                    <i class="bx bx-search"></i>
+                </button>
+            </div>
+            <div class="contacts">
+                <div class="contact active">
+                    <img src="uncle.jpeg" alt="User">
+                    <div class="contact-info">
+                        <h4>Design Team</h4>
+                        <p>7 members</p>
+                    </div>
+                </div>
+                <div class="contact active">
+                    <img src="buyer.jpeg" alt="User">
+                    <div class="contact-info">
+                        <h4>Alice Walker</h4>
+                       <p>online</p>
+                    </div>
+                </div>
+                <div class="contact active">
+                    <img src="aunty.jpeg" alt="User">
+                    <div class="contact-info">
+                        <h4>Alen Hensler </h4>
+                        <p>online</p>
+                    </div>
+                </div>
+                <div class="contact active">
+                    <img src="profileArtisan.jpeg" alt="User">
+                    <div class="contact-info">
+                        <h4>Jane Smith</h4>
+                        <p>online</p>
+                    </div>
+                </div>
+                <!-- Repeat for other contacts -->
+            </div>
+        </div>
+
+        <div class="chat-window">
+            <div class="chat-header">
+                <img src="uncle.jpeg" alt="User">
+                <h3>Design Team</h3>
+                <div class="header-icons">
+                    <!-- Add icons here -->
+                </div>
+            </div>
+
+            <div class="chat-messages">
+                <div class="message from">
+                    <p><strong>Tyler Ramos:</strong> We've got a new project coming up...</p>
+                </div>
+                <div class="message from">
+                    <p><strong>Ernest Lawson:</strong> Good stuff! Drop the design in here...</p>
+                </div>
+                <div class="message from">
+                    <p><strong>Alicia Philips:</strong> Here's some new designs...</p>
+                    
+                </div>
+            </div>
+
+            <div class="chat-input">
+                <input type="text" placeholder="Enter message...">
+                <button>Send</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

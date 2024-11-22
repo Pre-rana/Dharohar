@@ -1,0 +1,322 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Gowun Batang", serif;
+    background-color: #fdf6e3;
+    color: #333;
+}
+
+/* Header */
+
+main {
+    display: flex;
+    padding: 20px;
+}
+
+.breadcrumb {
+    list-style: none;
+    display: flex;
+    padding: 0px ;
+    background-color: #fff1cf;
+    border-radius: 4px;
+    margin-bottom: 0px;
+}
+
+.breadcrumb li {
+    margin-right: 10px;
+}
+
+.breadcrumb li a {
+    text-decoration: none;
+    color: #333;
+    font-weight:bolder;
+    font-family: "Gowun Batang", serif;
+}
+
+.breadcrumb li a:hover {
+    color: #007bff; /* Change color on hover */
+}
+
+.breadcrumb li::after {
+    content: "/";
+    margin-left: 10px;
+    color: #666;
+}
+
+.breadcrumb li:last-child::after {
+    content: "";
+}
+
+.breadcrumb .active {
+    font-weight: bold;
+    color: #666;
+    pointer-events: none; /* Makes the current page unclickable */
+}
+
+
+/* Main Section */
+.filters {
+    flex: 1;
+    max-width: 250px;
+    background-color: #ffffff;
+    padding: 15px;
+    margin-right: 20px;
+}
+
+.filters-price {
+    text-align: left;
+}
+
+.product-list {
+    flex: 3;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.product {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 15px;
+    text-align: center;
+}
+
+.product img {
+    max-width: 100%;
+    height: auto;
+}
+
+.product .price {
+    font-size: 16px;
+    font-weight: bold;
+    color: #58514f;
+}
+
+footer {
+    background-color: #8b4513;
+    color: white;
+    padding: 10px;
+    text-align: center;
+}
+
+@media screen and (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+    }
+
+    .filters {
+        display: none; /* Hide filters on small screens */
+    }
+
+    .product-list {
+        grid-template-columns: 1fr; /* Single column on small screens */
+    }
+}
+
+/* Currency Selector */
+
+.main-image {
+    box-sizing: content-box;
+    padding: 0% 10%;
+}
+.header-top {
+    background-color: rgb(167, 89, 33);
+    color: white;
+    padding: 10px;
+    display: flex;
+    
+    justify-content:start ;
+    align-items: center;
+}
+
+nav {
+    background-color: #fff1cf;
+    padding: 5px;
+    display: flex;
+    justify-content:start ; /* Ensure equal spacing */
+    align-items: center; /* Center items vertically */
+}
+.logo{
+    box-sizing:border-box;
+    width:60px;
+    padding: 0%;
+    margin-right: 5%;
+}
+.logo img {
+    width: 100%;
+    margin:0%;
+   
+}
+.categories{
+    width: 750px;
+
+}
+
+.nav-items {
+    list-style: none;
+    display: flex;
+    gap: 0%;
+    padding: 0;
+    margin: 0;
+    flex-wrap: nowrap;
+    justify-content:start ;
+    font-family: "Gowun Batang", serif;
+}
+
+.nav-item {
+    position: relative;
+    box-sizing: content-box;
+    padding: 0%;
+   
+   font-family: "Gowun Batang", serif;
+  /* To position dropdown */
+}
+.item{
+    min-width:23%;
+    position: relative;
+    box-sizing: content-box;
+    padding: 0%;
+}
+.item-1{
+    min-width:19%;
+    position: relative;
+    box-sizing: content-box;
+    padding: 0%;
+}
+.nav-item a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bolder;
+    padding: 10px 10px;
+    display: block;
+    font-family: "Gowun Batang", serif;
+}
+
+.dropdown {
+    display: none; /* Initially hide dropdown */
+    position: absolute; /* Position below parent */
+    background-color: #f8f6f2; /* Match navbar */
+    list-style: none;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    min-width: 180px;
+    z-index: 100; /* Ensure it appears above other content */
+}
+.dropdown li a {
+    padding: 10px 15px;
+    display: block;
+    color: #333;
+    text-align: left;
+    font-weight:bold;
+    font-family: "Gowun Batang", serif;
+}
+.background h1{
+    line-height:50px;
+    text-align: center;
+    color:#5c4615;
+    font-family: "Gowun Batang", serif;
+    font-weight: bold;
+}
+
+.dropdown li a:hover {
+    background-color: #f4d2af;
+    color: #d45b35;
+}
+
+/* Show dropdown on hover */
+
+.nav-item:hover .dropdown {
+    display: block; /* Show dropdown on hover */
+}
+
+.sell-button{
+    background-color: #825415;
+    color: #faf5e9;
+   width:10%;
+   padding:0.7% 0%;
+   border:none;
+   border-radius: 5px;
+   margin-left:12%;
+   font-family: 'Times New Roman', Times, serif;
+   font-size: 16px;
+}
+.account-section a {
+    text-decoration: none;
+    color: #fdfcfc;
+    margin-left: 10px;
+    /* right: -100px; */
+}
+.account-section span{
+    position: relative;
+    right: -130px;
+    margin-left:10;
+}
+.currency-selector {
+
+    margin-right:50%;
+}
+
+#currency-select {
+    background-color: rgb(167, 89, 33);
+    color: #fdfafa;
+    border: none;
+    padding: 5px;
+}
+#currency-select option{
+    background-color: #f8f6f2;
+    color:#52290d;
+    font-family: 'Times New Roman', Times, serif;
+    border-radius: 0%;
+}
+.navbar {
+    display: flex;
+    height:15%;
+    justify-content: start;
+    align-items: center;
+    padding: 7px; /* Adjust as needed */
+}
+
+.categories-bar {
+    display: flex;
+   width:100%;
+    
+    padding:0px;
+    margin: 0px;/* Allow it to grow and take available space */
+}
+
+
+.icons {
+    display: flex;
+    gap: 15px; 
+    justify-content: end;
+    margin-left: 15%;/* Adjust spacing between icons */
+}
+
+#heart-icon, #cart-icon {
+    text-decoration: none; /* Optional: removes underline */
+    color: inherit; /* Optional: inherits text color */
+    font-size: 30px;
+    margin-right: 20px;
+    /* font-weight: 700; */
+    /* color: #d45b35; */
+}
+.search-container {
+    display: flex;
+    align-items: center;
+    border: 2px solid #ccc;
+    border-radius: 25px;
+    overflow: hidden;
+}
+
+input[type="text"] {
+    border: none;
+    padding: 10px;
+    font-size: 16px;
+    width: 250px;
+    outline: none;
+}

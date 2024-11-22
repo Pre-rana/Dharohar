@@ -1,0 +1,159 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Lora', serif;
+    background-color: #f7e7d3; /* Light brown background */
+    color: #333;
+  }
+  
+  nav {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 40px;
+    background-color: white;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  nav ul {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+  }
+  
+  nav ul li {
+    font-weight: 500;
+    font-family: 'Roboto', sans-serif;
+  }
+  
+  nav ul li a {
+    text-decoration: none;
+    color: #555;
+    transition: color 0.3s;
+  }
+  
+  nav ul li a:hover {
+    color: #e74c3c;
+  }
+  
+  .hero {
+    background-image: url(/skils/home.jpg);
+    background-size: cover;
+    background-position: center;
+    height: 70vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .hero-text {
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 20px 40px;
+    border-radius: 10px;
+    text-align: center;
+    color: white;
+  }
+  
+  .hero-text h1 {
+    font-size: 40px;
+    font-weight: 600;
+    font-family: 'Roboto', sans-serif;
+  }
+  
+  .container {
+    padding: 40px;
+  }
+  
+  h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    font-weight: 600;
+    font-family: 'Lora', serif;
+  }
+  
+  .courses-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    
+  }
+  
+  .course-card {
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    
+  }
+  
+  .course-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+  }
+  
+  .course-img {
+    width: 100%;
+    height:auto;
+    object-fit: cover;
+  }
+  
+  .course-content {
+    padding: 20px;
+    text-align: center;
+    height: 20vh;
+  }
+  
+  .course-content h3 {
+    font-size: 18px;
+    font-weight: 500;
+  }
+  
+  .videos-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+  
+  .video-card {
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .video-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+  }
+  
+  .video-img {
+    width: 100%;
+    height:auto;
+    object-fit: cover;
+  }
+  
+  .video-content {
+    padding: 20px;
+    text-align: center;
+    height: 20vh;
+  }
+  
+  .video-content h4 {
+    font-size: 16px;
+    font-weight: 500;
+
+  }
+  h1{
+    font-family:'Times New Roman', Times, serif ;
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+   background-color: rgb(255, 254, 249);
+   color:brown;
+   line-height: 50px;
+  }

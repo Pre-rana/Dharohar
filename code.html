@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <?php
+    $apiKey = 'AIzaSyC-oAGYMTxwZJXWx84L5IjlXKNgiG8g5RE';
+    
+    function getPlaceDetails($apiKey, $placeId) {
+        $detailsUrl = "https://maps.googleapis.com/maps/api/place/details/json?place_id=$placeId&key=$apiKey";
+        $response = file_get_contents($detailsUrl);
+        $responseData = json_decode($response, true);
+        return $responseData['result'] ?? null;
+    }
+
+    function generateReport($placeDetails) {
+        if (!$placeDetails) {
+            return "No details available.";
+        }
+        $report = "Name: " . ($placeDetails['name'] ?? 'N/A') . "<br>";
+        $report .= "Address: " . ($placeDetails['formatted_address'] ?? 'N/A') . "<br>";
+        $report .= "Phone Number: " . ($placeDetails['formatted_phone_number'] ?? 'N/A') . "<br>";
+        $report .= "Website: <a href='" . ($placeDetails['website'] ?? '#') . "' target='_blank'>" . ($placeDetails['website'] ?? 'N/A') . "</a><br>";
+        $report .= "Rating: " . ($placeDetails['rating'] ?? 'N/A') . "<br>";
+        $report .= "Reviews Summary: " . generateReviewsSummary($placeDetails['reviews'] ?? null) . "<br>";
+        $report .= "User Ratings Total: " . ($placeDetails['user_ratings_total'] ?? 'N/A') . "<br>";
+        $report .= "Business Status: " . ($placeDetails['business_status'] ?? 'N/A') . "<br>";
+        $report .= "Opening Hours: <br>" . generateOpeningHours($placeDetails['opening_hours'] ?? null) . "<br>";
+        $report .= "Photos: <br>" . generatePhotos($placeDetails['photos'] ?? null) . "<br>";
+        $report .= "Popular Times: " . generatePopularTimes($placeDetails['popular_times'] ?? null) . "<br>";
+        $report .= "Location: " . ($placeDetails['geometry']['location']['lat'] ?? 'N/A') . ", " . ($placeDetails['geometry']['location']['lng'] ?? 'N/A') . "<br>";
+        $report .= "Place ID: " . ($placeDetails['place_id'] ?? 'N/A') . "<br>";
+        $report .= "UTC Offset: " . ($placeDetails['utc_offset'] ?? 'N/A') . "<br>";
+        $report .= "Formatted Address: " . generateFormattedAddress($placeDetails['address_components'] ?? null) . "<br>";
+        $report .= "Types: " . generateTypes($placeDetails['types'] ?? null) . "<br>";
+        $report .= "Price Level: " . generatePriceLevel($placeDetails['price_level'] ?? null) . "<br>";
+        $report .= "Google Maps URL: <a href='" . generateGoogleMapsUrl($placeDetails['place_id'] ?? null) . "' target='_blank'>View on Google Maps</a><br>";
+        return $report;
+    }
+
+    function generateReviewsSummary($reviews) {
+        if (!$reviews) {
+            return "No reviews available.";
+        }
+
+        $averageRating = 0;
+        $totalReviews = count($reviews);
+
+        foreach ($reviews as $review) {
+            $averageRating += $review['rating'];
+        }
+
+        if ($totalReviews > 0) {
+            $averageRating /= $totalReviews;
+        }
+
+        return "Average Rating: " . round($averageRating, 1) . " (" . $totalReviews . " reviews)";
+    }
+
+    function generatePopularTimes($popularTimes) {
+        if (!$popularTimes) {
+            return "Popular times data not available.";
+        }
+
+        return "Popular times data available.";
+    }
+
+    function generateFormattedAddress($addressComponents) {
+        if (!$addressComponents) {
+            return "Address details not available.";
+        }
+
+        $formattedAddress = "";
+        foreach ($addressComponents as $component) {
+            $formattedAddress .= $component['long_name'] . ", ";
+        }
+
+        return rtrim($formattedAddress, ", ");
+    }
+
+    function generateOpeningHours($openingHours) {
+        if (!$openingHours) {
+            return "Not available.";
+        }
+
+        $hours = "";
+        foreach ($openingHours['weekday_text'] as $day => $hoursText) {
+            $hours .= $hoursText . "<br>";
+        }
+
+        return $hours;
+    }
+
+    function generatePhotos($photos) {
+        if (!$photos) {
+            return "Not available.";
+        }
+
+        $photosList = "";
+        foreach ($photos as $photo) {
+            $photosList .= "<img src='" . generatePhotoUrl($photo['photo_reference'] ?? null) . "' height='100px' width='100px'>&nbsp;";
+        }
+
+        return $photosList;
+    }
+
+    function generatePhotoUrl($photoReference) {
+        if (!$photoReference) {
+            return "";
+        }
+
+        global $apiKey;
+        return "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=$photoReference&key=$apiKey";
+    }
+
+    function generateTypes($types) {
+        if (!$types) {
+            return "N/A";
+        }
+
+        return implode(", ", $types);
+    }
+
+    function generatePriceLevel($priceLevel) {
+        if (!$priceLevel) {
+            return "N/A";
+        }
+
+        $levels = [
+            0 => "Free",
+            1 => "Inexpensive",
+            2 => "Moderate",
+            3 => "Expensive",
+            4 => "Very Expensive"
+        ];
+
+        return $levels[$priceLevel] ?? "N/A";
+    }
+
+    function generateGoogleMapsUrl($placeId) {
+        if (!$placeId) {
+            return "";
+        }
+
+        return "https://www.google.com/maps/place/?q=place_id:$placeId";
+    }
+
+    function saveToDatabase($userData) {
+        // Database connection parameters
+        include '../../backend/db.php';
+
+        // Create connection
+        $conn = new mysqli($db_servername, $db_username, $db_password, $db_dbname);
+
+        // Check connection
+        if ($conn->connect_error) {
+            die("Connection failed: " . $conn->connect_error);
+        }
+
+        $stmt = $conn->prepare("INSERT INTO gmb_report_tool (user_name, user_email, user_phone, place_name, place_address, place_website, review_summary, user_rating_total, place_id, place_map_url) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+        $stmt->bind_param(
+            "ssssssssss",
+            $userData['userName'],
+            $userData['userEmail'],
+            $userData['userPhone'],
+            $userData['placeName'],
+            $userData['placeAddress'],
+            $userData['placeWebsite'],
+            $userData['reviewSummary'],
+            $userData['userRatingsTotal'],
+            $userData['placeId'],
+            $userData['placeMapUrl']
+        );
+
+        $stmt->execute();
+        $stmt->close();
+        $conn->close();
+    }
+
+    if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['placeId'])) {
+        $placeId = htmlspecialchars($_POST['placeId']);
+        $placeDetails = getPlaceDetails($apiKey, $placeId);
+
+        if ($placeDetails) {
+            $report = generateReport($placeDetails);
+            echo "<h2>Place Report</h2>";
+            echo $report;
+
+            $userData = [
+                'userName' => htmlspecialchars($_POST['userName']),
+                'userEmail' => htmlspecialchars($_POST['userEmail']),
+                'userPhone' => htmlspecialchars($_POST['userPhone']),
+                'placeName' => $placeDetails['name'] ?? 'N/A',
+                'placeAddress' => $placeDetails['formatted_address'] ?? 'N/A',
+                'placeWebsite' => $placeDetails['website'] ?? 'N/A',
+                'reviewSummary' => generateReviewsSummary($placeDetails['reviews'] ?? null),
+                'userRatingsTotal' => $placeDetails['user_ratings_total'] ?? 'N/A',
+                'placeId' => $placeDetails['place_id'] ?? 'N/A',
+                'placeMapUrl' => generateGoogleMapsUrl($placeDetails['place_id'] ?? null)
+            ];
+
+            saveToDatabase($userData);
+        } else {
+            echo "Place details not found.";
+        }
+    } else {
+        echo "No place ID provided.";
+    }
+    ?>
+</body>
+</html>
